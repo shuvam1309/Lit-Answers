@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>Get Answers</title>
+  <!-- MDB icon -->
+  <link rel="icon" href="{{ url_for('static',filename='img/favicon.png') }}" type="image/x-icon" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+  <!-- MDB -->
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/mdb.dark.min.css') }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  {% block extrajq %}
+    
+  {% endblock extrajq %}
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya&display=swap" rel="stylesheet">
+  {% block extracss %}
+
+  {% endblock extracss %}
+</head>
+
+<body
+  style='font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;'>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div style="width: 80%;" id="login-alert" class="container text-center">
+          <div class="text-center alert alert-{{ category }}">
+            {{ message }}
+          </div>
+          
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <div {% block style %}{% endblock style %} class="container h2 text-center mb-5">
+    {% block heading %}
+
+    {% endblock heading %}
+  </div>
+  <div class="text-center">
+    {% block body %}
+
+    {% endblock body %}
+  </div>
+
+
+  <!-- MDB -->
+  <script type="text/javascript" src="{{ url_for('static',filename='js/mdb.min.js') }}"></script>
+  <!-- Custom scripts -->
+  {% block extrajs %}
+  {% endblock extrajs %}
+
+</body>
+
+</html>

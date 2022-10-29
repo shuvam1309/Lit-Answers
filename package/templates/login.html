@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Get Answers - Login</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="{{ url_for('static',filename='img/favicon.png') }}" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+    <!-- MDB -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/mdb.dark.min.css') }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya&display=swap" rel="stylesheet">
+</head>
+
+<body
+    style='font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;'>
+
+    <div class="container text-center justify-content-center align-middle" style="min-height:100vh; padding-top:9.5vh">
+        <div class="gradient-custom">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                            <div class="card-body p-5 text-center">
+                                <!-- Default form login -->
+                                <form class="justify-content-center" method="POST" action="" style="border-radius: 1 rem;">
+
+                                    {% with messages = get_flashed_messages(with_categories=true) %}
+                                        {% if messages %}
+                                            {% for category, message in messages %}
+                                            <div class="text-center alert alert-{{ category }}">
+                                                {{ message }}
+                                            </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endwith %}
+
+                                    <div class="h2 mb-5">Login</div>
+                                    <!-- Email input -->
+                                    <div class="form-outline mb-4 my-5">
+                                        <input type="email" id="form1Example1" name="mail"
+                                            class="form-control form-control-lg"/>
+                                        <label class="form-label" for="form1Example1">Email</label>
+                                    </div>
+
+                                    <!-- Password input -->
+                                    <div class="form-outline mb-4 my-3">
+                                        <input type="password" id="form1Example2" name="pass"
+                                            class="form-control form-control-lg"/>
+                                        <label class="form-label" for="form1Example2">Password</label>
+                                    </div>
+                                    <!-- Remember me -->
+                                    <div class="row mb-4 my-2">
+                                        <div class="col d-flex justify-content-center">
+                                            <div class="form-check mt-3 mb-2">
+                                                <input class="form-check-input" name="remember" type="checkbox" id="form1Example3"/>
+                                                <label class="form-check-label" for="form1Example3"> Remember me
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Submit button -->
+                                    <div class="col-md-12 mt-4">
+                                        <button type="submit" class="btn btn-outline-white">Sign in</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="{{ url_for('static',filename='js/mdb.min.js') }}"></script>
+
+</body>
+
+</html>

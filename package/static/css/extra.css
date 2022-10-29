@@ -1,0 +1,9 @@
+#loading{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #2b2a2a
+    url("https://i2.wp.com/codemyui.com/wp-content/uploads/2017/09/rotate-pulsating-loading-animation.gif?fit=880%2C440&ssl=1")
+    no-repeat center;
+    z-index: 99999;
+}

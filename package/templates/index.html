@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block extrajq %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{% endblock extrajq %}
+{% block style %}
+    style="margin-top:10%"
+{% endblock style %}
+{% block heading %}
+    <a href="/" style="color: white;" class="h1" >Get Answer</a>
+{% endblock heading %}
+{% block body %}
+    <div style="width: 80%;" class="container">
+        <form action="" method="POST" class="row g-4 justify-content-center">
+            <!-- Name input -->
+            <div class="form-outline my-5 col-md-5">
+                <input type="text" id="form5Example1" name="url" class="form-control form-control-lg">
+                <label class="form-label" for="form5Example1">Enter URL</label>
+            </div>
+            
+            <!-- Submit button -->
+            <div class="col-md-12 my-3 text-center">
+                <button type="submit" class="btn btn-outline-white">Get Ans</button>
+            </div>
+        </form>
+    </div>
+{% endblock body %}
+{% block extrajs %}
+    <script>
+        $(document).ready(function() {
+            $("#login-alert").fadeTo(2000, 500).slideUp(500, function() {
+            $("#login-alert").slideUp(500);
+            });
+        });
+    </script>
+{% endblock extrajs %}

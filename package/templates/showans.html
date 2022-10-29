@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block style %}
+    style="margin-top:1%"
+{% endblock style %}
+{% block heading %}
+    <span class="mx-5">Show Answer</span>
+{% endblock heading %}
+{% block extracss %}
+<link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+    <style>
+        textarea {
+            position: absolute;
+            left: -100%;
+        }
+    </style>
+{% endblock extracss %}
+{% block body %}
+    <div style="display: inline-block; width: 80%;" class="container justify-content-center">
+        <a style="float: left;" class="me-5 h6 btn btn-sm btn-outline-white btn-rounded" href="/">
+                <i class="fas fa-chevron-left"></i>
+                Go back
+        </a>
+        <div id="copybtn" style="float: right;" class="ms-5 h6 btn btn-sm btn-outline-white btn-rounded ">
+            <i class="far fa-copy"></i>
+            Copy
+        </div>
+    </div>
+    <div class="visible container border border-dark rounded-7" style="min-height: 75vh; padding:2%">
+        <pre id="answer" style='font-size: 14px;  font-family: "Urbanist", sans-serif; text-align: left; white-space:pre-wrap'>
+            {{s}}
+        </pre>
+    </div>
+{% endblock body %}
+{% block extrajs %}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript">
+        function copyFunction() {
+            const copyText = document.getElementById("answer").textContent;
+            const textArea = document.createElement('textarea');
+            textArea.textContent = copyText;
+            document.body.append(textArea);
+            textArea.select();
+            document.execCommand("copy");
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.addEventListener('mouseenter', Swal.stopTimer)
+                  toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+              
+            Toast.fire({
+            icon: 'success',
+            title: "<b style='color:white'>Answer Copied Sucecssfully</b>",
+            background: "rgb(32, 32, 32)"
+            })
+          }
+          
+          document.getElementById('copybtn').addEventListener('click', copyFunction);
+    </script>
+{% endblock extrajs %}

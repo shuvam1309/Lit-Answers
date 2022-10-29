@@ -1,0 +1,8 @@
+.env
+a.ps1
+new.py
+test.py
+.vscode
+__pycache__
+pakage/__pycache__/*
+package/tasks.db
